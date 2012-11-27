@@ -1,9 +1,11 @@
 package net.kencochrane.sentry;
 
-import org.apache.commons.lang.time.DateFormatUtils;
-
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+
+import net.kencochrane.sentry.helper.Base64;
+import net.kencochrane.sentry.helper.DateFormatUtils;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -14,8 +16,6 @@ import java.util.UUID;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 import java.util.zip.GZIPOutputStream;
-
-import static org.apache.commons.codec.binary.Base64.encodeBase64String;
 
 /**
  * User: ken Cochrane
@@ -225,6 +225,6 @@ public class RavenUtils {
             e.printStackTrace();
             //todo do something here better then this.
         }
-        return encodeBase64String(out.toByteArray());
+        return Base64.encodeBytes(out.toByteArray());
     }
 }

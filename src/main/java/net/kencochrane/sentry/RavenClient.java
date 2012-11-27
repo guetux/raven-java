@@ -1,5 +1,7 @@
 package net.kencochrane.sentry;
 
+import net.kencochrane.sentry.helper.Base64;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -10,8 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.*;
-
-import static org.apache.commons.codec.binary.Base64.encodeBase64String;
 
 /**
  * User: ken cochrane
@@ -187,7 +187,7 @@ public class RavenClient {
         //return compressAndEncode(jsonMessage);
 
         // in the meantime just base64 encode it.
-        return encodeBase64String(jsonMessage.getBytes());
+    	return Base64.encodeBytes(jsonMessage.getBytes());
 
     }
 
